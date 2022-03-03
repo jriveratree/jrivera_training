@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_teams
+    columns:
+      - name: team_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_players
+    columns:
+      - name: player_id
+        tests:
+          - unique
+          - not_null
+      - name: team_id
+        tests:
+          - relationships:
+              to: ref('stg_teams')
+              field: team_id
+
+  - name: stg_games
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+      - name: team_id_home
+        tests:
+          - relationships:
+              to: ref('stg_teams')
+              field: team_id
+      - name: team_id_away
+        tests:
+          - relationships:
+              to: ref('stg_teams')
+              field: team_id
+
+  - name: stg_games_details
+    columns:
+      - name: game_id
+        tests:
+          - relationships:
+              to: ref('stg_games')
+              field: game_id
+      - name: team_id
+        tests:
+          - relationships:
+              to: ref('stg_teams')
+              field: team_id
+      - name: player_id
+        tests:
+          - relationships:
+              to: ref('stg_players')
+              field: player_id
+              
