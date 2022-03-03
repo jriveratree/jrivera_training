@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: etl
+    database: dbt_training02
+
+    schema: etl
+    tables:
+      - name: stg_games
+      - name: stg_games_details
+      - name: stg_players
+      - name: stg_teams
