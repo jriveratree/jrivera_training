@@ -12,7 +12,6 @@ models:
     columns:
       - name: player_id
         tests:
-          - unique
           - not_null
       - name: team_id
         tests:
@@ -49,6 +48,63 @@ models:
           - relationships:
               to: ref('stg_teams')
               field: team_id
+      - name: fieldgoalsmade
+        tests:
+          - not_null
+      - name: fieldgoalsattempted
+        tests:
+          - not_null
+      - name: fieldgoals_pct
+        tests:
+          - not_null
+      - name: fieldgoals3made
+        tests:
+          - not_null
+      - name: fieldgoals3attempted
+        tests:
+          - not_null
+      - name: fieldgoals3_pct
+        tests:
+          - not_null
+      - name: freethrowmade
+        tests:
+          - not_null
+      - name: freethrowaattempted
+        tests:
+          - not_null
+      - name: freethrow_pct
+        tests:
+          - not_null
+      - name: offensive_rebounds
+        tests:
+          - not_null
+      - name: defensive_rebounds
+        tests:
+          - not_null
+      - name: rebounds
+        tests:
+          - not_null
+      - name: assists
+        tests:
+          - not_null
+      - name: steals
+        tests:
+          - not_null
+      - name: blocked_shots
+        tests:
+          - not_null
+      - name: turnovers
+        tests:
+          - not_null
+      - name: personal_fouls
+        tests:
+          - not_null
+      - name: points
+        tests:
+          - not_null
+      - name: plus_minus
+        tests:
+          - not_null
       - name: player_id
         tests:
           - relationships:
