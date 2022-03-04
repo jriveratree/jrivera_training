@@ -48,6 +48,11 @@ models:
           - relationships:
               to: ref('stg_teams')
               field: team_id
+      - name: player_id
+        tests:
+          - relationships:
+              to: ref('stg_players')
+              field: player_id
       - name: fieldgoalsmade
         tests:
           - not_null
@@ -105,9 +110,4 @@ models:
       - name: plus_minus
         tests:
           - not_null
-      - name: player_id
-        tests:
-          - relationships:
-              to: ref('stg_players')
-              field: player_id
               

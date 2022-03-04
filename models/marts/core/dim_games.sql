@@ -1,3 +1,4 @@
+--i can use crosstab or nest here, but i want to keep simple thing for this time
 with home as (
     select
         game_date_est	as	game_date_est,
