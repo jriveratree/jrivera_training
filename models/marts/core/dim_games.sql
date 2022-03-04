@@ -24,3 +24,4 @@ away as (
 select * from home
 union
 select * from away
+order by game_id, team_id

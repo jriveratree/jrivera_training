@@ -1,7 +1,4 @@
-with players as (
-	select  distinct player_id from {{ source('etl', 'stg_players') }}
-),
-games_details as (
+with games_details as (
     select 
         game_id	as	game_id	,
 		team_id	as	team_id	,
@@ -33,6 +30,5 @@ games_details as (
 		coalesce( pts, 0) as points,--1
 		coalesce( plus_minus, 0) as plus_minus
     from {{ source('etl', 'stg_games_details') }} gd
-	--where gd.player_id in (select player_id from players) --cleaning orphan
 )
 select * from games_details

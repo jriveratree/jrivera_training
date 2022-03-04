@@ -25,6 +25,6 @@ with games as (
 		--home_team_id	as	home_team_id,--redundant
 		--visitor_team_id	as	visitor_team_id,--redundant
     from {{ source('etl', 'stg_games') }}
-	where not(( game_id = 22000070 and reb_away = 44 ) or ( game_id = 22000076 and round(fg_pct_home*1000)/1000 = 0.453 ))
+	where not(( game_id = 22000070 and reb_away = 44 ) or ( game_id = 22000076 and round(fg_pct_home*1000)/1000 = 0.453 )) --only get one row for special duplicated records
 )
 select * from games

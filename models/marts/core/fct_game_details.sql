@@ -1,8 +1,9 @@
 with fct_games_details as (
     select 
-        game_id	,
-		team_id	,
-		player_id,
+        gd.game_id	,
+		gd.team_id	,
+		gd.player_id,
+		season,
 		points,--1
 		fieldgoals_pct,--2
 		freethrow_pct,--3
@@ -23,5 +24,6 @@ with fct_games_details as (
 		personal_fouls,
 		plus_minus
     from {{ ref('stg_games_details') }} gd
+	inner join {{ ref('stg_games') }} g on g.game_id = gd.game_id
 )
 select * from fct_games_details
